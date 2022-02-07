@@ -1,0 +1,19 @@
+
+#-------------------------------------------------
+# 문자열 기본
+
+s = "Do you know \"python\"?"
+
+print(s)
+
+#-------------------------------------------------
+# 문자열 연산
+
+a = "Hello"
+b = "World"
+
+print(a + b) # HelloWorld
+print(a * 3) # HelloHelloHello
+print(a[1:3]) # el
+
+
