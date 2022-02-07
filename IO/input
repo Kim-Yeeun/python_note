@@ -1,0 +1,25 @@
+
+#----------------------------------------------------------------
+# 공백을 포함하여 입력받기(메서드 사용)
+
+n = int(input()) # 5
+score = list(map(int, input().split())) # 65, 90, 75, 34, 99
+
+score.sort(reverse = True)
+
+print(score) # [99, 90, 75, 65, 34]
+
+a, b, c = map(int, input().split()) # 1 2 3 
+
+print(a, b, c) # 1 2 3
+
+#----------------------------------------------------------------
+# 공백을 포함하여 입력받기(라이브러리 사용)
+
+import sys
+
+data = sys.stdin.readline().rstrip() # 1 2 3 
+
+print(data) # 1 2 3
+
+
