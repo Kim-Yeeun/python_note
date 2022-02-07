@@ -1,0 +1,36 @@
+
+a = 1e9
+
+# 지수표현방식은 기본적으로 실수형으로 저장된다.
+print(a) # 1000000000.0
+print(int(a)) # 1000000000
+
+b = int(1e9)
+
+print(b) # 1000000000
+
+#------------------------------------------------
+
+a = 0.3 + 0.6
+
+print(a) # 0.89999999999
+
+if a == 0.9:
+  print(True)
+else:
+  print(False) # False
+  
+#--VS--
+
+a = 0.3 + 0.6
+b = round(a, 4)
+
+print(b) # 0.9
+
+if b == 0.9:
+  print(True) # True
+else:
+  print(False)
+  
+  
+  
