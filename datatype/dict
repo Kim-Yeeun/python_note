@@ -1,0 +1,32 @@
+
+#----------------------------------------------------
+# 사전 자료형 기본
+
+data = dict()
+data['A'] = 'a'
+data['B'] = 'b'
+data['C'] = 'c'
+
+print(data) # {'A': 'a', 'B': 'b', 'C': 'c'}
+
+if 'A' in data:
+  print(data) # {'A': 'a', 'B': 'b', 'C': 'c'}
+  
+key_list = data.keys()
+value_list = data.values()
+
+print(key_list) # dict_keys(['A', 'B', 'C'])
+print(value_list) # dict_values(['a', 'b', 'c'])
+
+for key in key_list:
+  print(data[key]) # a b c
+  
+b = {
+  'D' : 4,
+  'E' : 5
+}
+
+print(b) # {'D': 4, 'E': 5}
+
+
+  
