@@ -73,5 +73,11 @@ print(b.count(3)) # 2
 b.remove(3)
 print(b) # [5, 4, 2, 3, 1]
 
+# 다수의 특정 원소 
+a = [1, 2, 3, 4, 5, 5, 5]
+n = {3, 5}
+
+result = [i for i in a if i not in n]
+print(result) # [1, 2, 4]
 
 
