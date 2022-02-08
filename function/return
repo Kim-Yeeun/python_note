@@ -1,0 +1,16 @@
+
+#-------------------------------------------------
+# 여러 개의 값을 반환
+
+def operator(a, b):
+  add = a + b
+  subtract = a - b
+  multiply = a * b
+  divide = a / b
+  return add, subtract, multiply, divide
+
+a, b, c, d = operator(7, 3)
+
+print(a, b, c, d) # 10 4 21 2.3333333333333335
+
+
