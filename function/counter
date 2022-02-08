@@ -1,0 +1,14 @@
+
+#---------------------------------------------------------
+# counter
+
+from collections import Counter
+
+counter = Counter(['A', 'B', 'B', 'A', 'B', 'B', 'C'])
+
+print(counter['A']) # 2
+print(counter['B']) # 4
+print(dict(counter)) # {'A': 2, 'B': 4, 'C': 1}
+
+
+
