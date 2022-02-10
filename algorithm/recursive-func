@@ -1,0 +1,45 @@
+
+#----------------------------------------------------------------------------------
+# 재귀 함수
+# DFS를 구현할 때 자주 사용 
+# 재귀함수의 종료조건을 반드시 명시
+# * 컴퓨터가 함수를 연속적으로 호출하면 컴퓨터 메모리 내부 스택 프레임에 쌓인다.
+# * -> 스택을 사용해야할 때 구현상 스택 자료구조 대신에 재귀함수를 이용하는 경우가 많다.
+
+# 기본 예제
+def re_func(i):
+  if i == 100:
+    return
+  print(i, i+1)
+  re_func(i + 1)
+  print(i)
+
+re_func(1) # i에서 i+1 호출하다가 100번까지 호출하면 99번부터 순서대로 종료
+
+# 팩토리얼 구현 예제
+def fact_iterative(n): # 반복문 사용
+  result = 1
+  for i in range(1, n+1):
+    result *= i
+  return result
+
+def fact_recursive(n): # 재귀함수 사용
+  if n <= 1:
+    return 1
+  return n * fact_recursive(n-1)
+
+print(fact_iterative(5)) # 120
+print(fact_recursive(5)) # 120
+
+# 최대공약수 계산(유클리드 호제법) 예제
+# 두 자연수 a, b에 대해 나머지를 r로 설정
+# 이 때 a, b의 최대공약수는 b, r의 최대공약수와 같다.
+def gcd(a, b):
+  if a % b == 0:
+    return b
+  else:
+    return gcd(b, a % b)
+
+print(gcd(192, 162)) # 6
+
+
