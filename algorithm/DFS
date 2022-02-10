@@ -41,6 +41,33 @@ dfs(graph, 1, visited) # 1 2 7 6 8 3 4 5
 # 2. 방문 지점에서 다시 상하좌우 살펴보며 과정을 반복하면 연결된 모든 지점을 방문할 수 있다.
 # 3. 1~2번 과정을 반복하며 방문하지 않은 지점의 수를 카운트
 
+def dfs(x, y):
+  if x <= -1 or x >= n or y <= 1 or y >= m: # 주어진 범위를 벗어나는 경우 즉시 종료
+    return False
+
+  if graph[x][y] == 0: # 현재 노드에 방문하지 않은 경우
+    graph[x][y] = 1 # 해당 노드 방문 처리
+    dfs(x-1, y) # 상하좌우 위치의 노드에 대해 재귀함수 호출
+    dfs(x, y-1) # return 값을 사용하지 않기 때문에 단순히 연결된 모든 노드에 대해서 방문 처리를 수행하기 위한 목적
+    dfs(x+1, y)
+    dfs(x, y+1)
+    return True
+    
+  return False
+
+n, m = map(int, input().split())
+
+graph = []
+for i in range(n):
+  graph.append(list(map(int, input())))
+
+result = 0
+for i in range(n): # 모든 노드에 대해 음료수 채우기
+  for j in range(m):
+    if dfs(i, j) == True: # 현재 위치에서 DFS 수행
+      result += 1
+
+print(result)
 
 
 
