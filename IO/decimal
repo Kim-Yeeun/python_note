@@ -32,4 +32,11 @@ print(chr(n)) # A
 s = ord(input())
 print(chr(s + 1))
 
+#----------------------------------------------------
+# 16진수 구구단 출력
+
+s = int(input(), 16)
+for i in range(1, 16):
+  print('%X'%s, '*%X'%i, '=%X'%(s*i), sep='')
+  
 
