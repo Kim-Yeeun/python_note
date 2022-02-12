@@ -106,3 +106,29 @@ for i in range(len(count)):
 # 두 개의 배열 A, B이며 N개의 자연수로 구성
 # 최대 K번의 바꿔치기 연산을 수행 -> 바꿔치기 연산이란 배열 A의 원소 하나와 배열 B의 원소 하나를 골라 서로 바꾸는 것
 # 배열 A의 전체 원소 합의 최댓값
+
+n, k = map(int, input().split())
+a = list(map(int, input().split()))
+b = list(map(int, input().split()))
+         
+a.sort()
+b.sort(reverse=True)
+
+cnt = 0
+for i in range(n):
+  if cnt == k:
+    break
+  if a[i] < b[i]:
+    a[i], b[i] = b[i], a[i]
+    cnt += 1
+  else:
+    continue
+
+a.sort(reverse=True)
+sum = 0
+for i in range(n):
+  sum += a[i]
+
+print(sum)
+
+
