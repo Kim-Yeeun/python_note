@@ -172,5 +172,59 @@ for i in range(1, n+1):
   else:
     print(distance[i])
 
+#------------------------------------------------------------------------------------------------------
+# 전보 문제
+# 어떤 나라에는 N개의 도시 존재, X 도시에서 Y 도시로 전보를 보내려면 통로가 설치되어야 한다.
+# C라는 도시에 위급 상황 발생, 최대한 많은 도시로 메세지를 보내야 한다.
+# 각 도시 번호와 통로 정보가 주어졌을 때, 도시 C에서 보낸 메시지를 받게 되는 도시의 개수, 도시들이 모두 메시지를 받는 데까지 걸리는 시간
+# -> 한 도시에서 다른 도시까지의 최단 거리 문제로 치환
+# -> N, M의 크기가 충분히 크기 때문에 다익스트라-우선순위 큐 알고리즘 사용
+
+import heapq
+import sys
+input = sys.stdin.readline
+INF = int(1e9)
+
+def dijkstra(start):
+  q = []
+  # 시작 노드로 가기 위한 최단 거리는 0으로 설정하여 큐에 삽입
+  heapq.heappush(q, (0, start))
+  distance[start] = 0
+  # 큐가 비어있지 않을 때까지 반복
+  while q:
+    # 가장 최단 거리가 짧은 노드에 대한 정보 꺼내기
+    dist, now = heapq.heappop(q)
+    if distance[now] < dist:
+      continue
+    # 현재 노드와 연결된 다른 인접한 노드들을 확인
+    for i in graph[now]:
+      cost = dist + i[1]
+      # 현재 노드를 거쳐, 다른 노드로 이동하는 거리가 더 짧은 경우
+      if cost < distance[i[0]]:
+        distance[i[0]] = cost
+        heapq.heappush(q, (cost, i[0]))
+
+n, m, start = map(int, input().split())
+
+graph = [[] for i in range(n+1)]
+distance = [INF] * (n+1)
+
+for _ in range(m):
+  x, y, z = map(int, input().split())
+  graph[x].append((y, z))
+
+dijkstra(start)
+# 도달할 수 있는 노드 개수
+count = 0
+max_distance = 0
+for d in distance:
+  if d != 1e9:
+    count += 1
+    max_distance = max(max_distance, d)
+
+print(count-1, max_distance)
+
+count = 0
+
 
 
