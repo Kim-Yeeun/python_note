@@ -1,0 +1,10 @@
+
+s = 'apple'
+
+if 'apple' in s: 
+  s = s.replace('apple', 'banana')
+  
+print(s) # 'banana'
+  
+  
+  
