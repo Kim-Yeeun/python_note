@@ -1,0 +1,27 @@
+
+# dictionary 활용
+
+def solution(id_list, report, k):
+    
+    mail_cnt = {}
+    report_cnt = {}
+    for i in range(len(id_list)): # 신고횟수, 메일횟수 담은 사전 초기화
+        mail_cnt[id_list[i]] = []
+        report_cnt[id_list[i]] = 0
+    
+    for i in set(report):
+        x, y = i.split(' ')
+        mail_cnt[x].append(y) # 신고한 사람 추가
+        report_cnt[y] += 1 # 신고당한 사람 1 증가
+            
+    result = [0 for _ in range(len(id_list))]
+    for key, values in mail_cnt.items():
+        for value in values:
+            if report_cnt[value] >= k:
+                result[id_list.index(key)] += 1
+    
+    return result
+    
+    
+    
+    
