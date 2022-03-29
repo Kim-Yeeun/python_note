@@ -1,0 +1,10 @@
+
+import math
+
+n = 144
+if math.sqrt(n).is_integer():
+  print(math.pow(math.sqrt(n), 2))
+  
+  
+  
+  
