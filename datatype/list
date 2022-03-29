@@ -131,5 +131,9 @@ for i in range(h):
     print(result[i][j], end=' ')
   print()
   
-  
-  
+#----------------------------------------------------
+# 특정 문자열 있는 인덱스 반환하기
+
+print(list.index('apple'))
+
+
