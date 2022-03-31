@@ -26,4 +26,9 @@ result = map(lambda a, b: a + b, list1, list2) # [7, 9, 11, 13, 15]
 
 print(list(result))
 
+#--------------------------------------------
+# 문자열 x를 세번 곱한 문자열을 원소로 가지는 tmp 리스트를 역순 정렬 
+
+tmp.sort(key=lambda x: x * 3, reverse=True)
+
 
