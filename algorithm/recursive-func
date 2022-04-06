@@ -31,6 +31,19 @@ def fact_recursive(n): # 재귀함수 사용
 print(fact_iterative(5)) # 120
 print(fact_recursive(5)) # 120
 
+# 피보나치 수열 구현 예제
+
+N = int(input())
+
+def fibonacci(n):
+  if n == 0:
+    return 0
+  elif n == 1:
+    return 1
+  return fibonacci(n-2) + fibonacci(n-1)
+
+print(fibonacci(N))
+
 # 최대공약수 계산(유클리드 호제법) 예제
 # 두 자연수 a, b에 대해 나머지를 r로 설정
 # 이 때 a, b의 최대공약수는 b, r의 최대공약수와 같다.
