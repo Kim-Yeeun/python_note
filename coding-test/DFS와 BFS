@@ -2,32 +2,32 @@
 from collections import deque
 
 def dfs(graph, v, visited):
-  visited[v] = True
+  visited[v] = True # 노드 방문처리
   print(v, end=' ')
-  for i in graph[v]:
-    if not visited[i]:
-      dfs(graph, i, visited)
+  for i in graph[v]: # v 노드를 부모노드로 가지는 자식노드들에 대해
+    if not visited[i]: # 방문하지 않은 노드의 경우
+      dfs(graph, i, visited) # 재귀적으로 탐색 수행
 
 def bfs(graph, start, visited):
-  queue = deque([start])
-  visited[start] = True
-  while queue:
-    v = queue.popleft()
+  queue = deque([start]) # 첫번째 노드를 큐에 넣음
+  visited[start] = True # 노드 방문처리
+  while queue: # 큐가 빌 때까지
+    v = queue.popleft() # 가장 먼저 들어온(왼쪽) 노드 가져옴
     print(v, end=' ')
-    for i in graph[v]:
-      if not visited[i]:
-        queue.append(i)
-        visited[i] = True
+    for i in graph[v]: # v 노드를 부모노드로 가지는 자식노드들에 대해
+      if not visited[i]: # 방문하지 않은 자식노드일 경우
+        queue.append(i) # 큐에 넣고
+        visited[i] = True # 방문처리
 
 n, m, v = map(int, input().split())
 
-graph = [[] for _ in range(n+1)]
+graph = [[] for _ in range(n+1)] # 첫번째 노드 정보를 비워두기 위해 정점개수보다 1 증가한 길이의 graph를 생성
 for _ in range(m):
   x, y = list(map(int, input().split()))
-  graph[x].append(y)
+  graph[x].append(y) # 양방향 그래프이므로 간선을 두개 넣음
   graph[y].append(x)
 
-for i in range(1, n+1):
+for i in range(1, n+1): # 첫번째 노드 정보 비워두고 나머지는 정렬
   graph[i].sort()
   
 visited = [False] * (n+1)
