@@ -25,3 +25,36 @@ for i in range(2, n+1):
 
 print(result)
 
+#------------------------------------------------------------------------------------------------------------------------
+
+from collections import deque
+
+def bfs(start):
+  queue = deque([start]) # 시작 노드를 넣은 큐 생성
+  while queue: # 큐가 빌 때까지
+    v = queue.popleft() # 큐의 첫번째 노드 꺼내와 v에 저장
+    for i in graph[v]: # v와 연결된 노드에 대해 확인
+      if not visited[i]: # 방문한 적이 없는 노드일 경우
+        queue.append(i) # 큐에 삽입
+        visited[i] = True
+
+n = int(input())
+m = int(input())
+
+graph = [[] for _ in range(n+1)]
+for _ in range(m):
+  x, y = map(int, input().split())
+  graph[x].append(y)
+  graph[y].append(x)
+
+visited = [False] * (n+1)
+
+bfs(1)
+
+result = 0
+for i in range(2, n+1):
+  if visited[i] == True:
+    result += 1
+
+print(result)
+
