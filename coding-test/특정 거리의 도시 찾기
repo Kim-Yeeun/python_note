@@ -1,0 +1,38 @@
+
+import sys
+input = sys.stdin.readline
+
+from collections import deque
+
+def bfs(start):
+  queue = deque([start])
+  cnt = 0
+  while queue:
+    v = queue.popleft()
+    for i in graph[v]:
+      if distance[i] == -1:
+        queue.append(i)
+        distance[i] = cnt
+
+n, m, k, x = map(int, input().split())
+
+graph = [[] for _ in range(n+1)]
+for _ in range(m):
+  a, b = map(int, input().split())
+  graph[a].append(b)
+
+distance = [-1] * (n+1)
+distance[x] = 0
+
+bfs(x)
+
+results = []
+for i in range(n+1):
+  if distance[i] == k:
+    results.append(i)
+
+if len(results) == 0:
+  print(-1)
+else:
+  for i in range(len(results)):
+    print(results[i])
