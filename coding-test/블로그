@@ -1,0 +1,28 @@
+
+import sys
+input = sys.stdin.readline
+
+n, x = map(int, input().split())
+visit = list(map(int, input().split()))
+
+v = 0
+visits = []
+for i in range(n-x+1):
+  for j in range(i, i+x):
+    v += visit[j]
+  visits.append(v)
+  v = 0
+
+result = 0
+if max(visits) == 0:
+  print('SAD')
+else:
+  for i in visits:
+    if i == max(visits):
+      result += 1
+  print(max(visits))
+  print(result)
+  
+  
+  
+ 
