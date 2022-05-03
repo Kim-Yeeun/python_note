@@ -1,0 +1,21 @@
+
+import sys
+
+dict = {}
+n, m = map(int, input().split())
+for _ in range(n):
+  s = sys.stdin.readline().rstrip()
+  if len(s) < m:
+    continue
+  if s in dict:
+    dict[s] += 1
+  else:
+    dict[s] = 1
+
+dict = sorted(dict.items(), key=lambda item: (-item[1], -len(item[0]), item[0]))
+
+for word, cnt in dict:
+  print(word)
+  
+  
+  
