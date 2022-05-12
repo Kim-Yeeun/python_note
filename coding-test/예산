@@ -1,0 +1,24 @@
+
+n = int(input())
+moneys = list(map(int, input().split()))
+m = int(input())
+
+start, end = 0, max(moneys)
+total = 0
+
+if sum(moneys) <= m:
+  print(max(moneys))
+else:
+  while start <= end:
+    mid = (start + end) // 2
+    total = 0
+    for money in moneys:
+      total += min(mid, money)
+    if total > m:
+      end = mid-1
+    else:
+      start = mid+1
+  print(end)
+  
+  
+  
