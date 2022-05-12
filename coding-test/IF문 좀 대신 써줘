@@ -1,0 +1,25 @@
+
+import bisect
+import sys
+input = sys.stdin.readline
+
+n, m = map(int, input().split())
+
+names = []
+strengths = []
+for i in range(n):
+  name, strength = map(str, input().split())
+  names.append(name)
+  strengths.append(int(strength))
+
+results = []
+for _ in range(m):
+  score = int(input())
+  idx = bisect.bisect_left(strengths, score)
+  results.append(names[idx-1])
+
+for result in results:
+  print(result)
+  
+  
+  
