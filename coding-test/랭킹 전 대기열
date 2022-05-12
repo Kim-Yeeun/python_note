@@ -1,0 +1,38 @@
+
+from collections import deque
+
+p, m = map(int, input().split())
+
+wait = deque()
+for _ in range(p):
+  l, n = map(str, input().split())
+  wait.append((l, n))
+
+room = []
+while wait:
+  if len(room) == m:
+    room.sort(key=lambda x:x[1])
+    print('Started!')
+    for i in room:
+      print(i[0], i[1])
+    room = []
+    continue
+    
+  l, n = wait.popleft()
+  if len(room) == 0:
+    room.append((l, n))
+    level = int(l)
+  else:
+    if level-10 <= int(l) <= level+10:
+      room.append((l, n))
+    else:
+      wait.append((l, n))
+
+if len(wait) > 0:
+  wait.sort(key=lambda x:x[1])
+  print('Waiting!')
+  for i in wait:
+    print(i[0], i[1])
+    
+    
+    
