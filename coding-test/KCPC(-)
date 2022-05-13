@@ -1,0 +1,30 @@
+
+for _ in range(int(input())):
+  n, k, t, m = map(int, input().split())
+  
+  result = []
+  for _ in range(m):
+    i, j, s = map(int, input().split())
+    result.append((i, j, s))
+
+  score = [0 for _ in range(n+1)]
+  cnt = [0 for _ in range(n+1)]
+  recent = []
+  for i, j, s in result:
+    score[i] += s
+    cnt[i] += 1
+    if len(recent) == 0:
+      recent.append((i, 1))
+
+  max_idx = []
+  for i in range(1, n+1):
+    if score[i] == max(score):
+      max_idx.append(i)
+
+  if len(max_idx) == 1:
+    print(max_idx[0])
+  else:
+    for i in max_idx:
+      
+      
+      
